@@ -1,5 +1,5 @@
 /* [Global Parameters] */
-part = "draw_two"; // [connector_all:All Connectors,connector_zero:Zero Length Straight Connector,connector_straight:Straight Connector,connector_t:Edgy T-Connector,connector_t_round:Round T-Connector,connector_x:Edgy X-Connector,connector_x_round:Round X-Connector,connector_corner_edgy:Edgy Corner Connector,connector_corner:Corner Connector,connector_corner_round:Round Corner Connector,divider:Straight Divider,divider_lowered:Divider With Lowered Section,divider_bend_right:Divider With Right Bend, divider_bend_left:Divider With Left Bend,connector_all_border:All Border Connectors,connector_zero_border:Border Zero Length Straight Connector,connector_straight_border:Border Straight Connector,connector_t_border:Border Edgy T-Connector,connector_t_round_border:Border Round T-Connector,connector_corner_edgy_border:Border Edgy Corner Connector,connector_corner_border:Border Corner Connector,connector_corner_round_border:Border Round Corner Connector,divider_border:Border Divider Parts]
+part = "draw_two"; // [connector_all:All Connectors,connector_zero:Zero Length Straight Connector,connector_straight:Straight Connector,connector_t:Edgy T-Connector,connector_t_round:Round T-Connector,connector_x:Edgy X-Connector,connector_x_round:Round X-Connector,connector_corner_edgy:Edgy Corner Connector,connector_corner:Corner Connector,connector_corner_round:Round Corner Connector,divider:Straight Divider,divider_lowered:Divider With Lowered Section,divider_bend_right:Divider With Right Bend, divider_bend_left:Divider With Left Bend,connector_all_border:All Border Connectors,connector_zero_border:Border Zero Length Straight Connector,connector_straight_border:Border Straight Connector,connector_t_border:Border Edgy T-Connector,connector_t_round_border:Border Round T-Connector,connector_corner_edgy_border:Border Edgy Corner Connector,connector_corner_border:Border Corner Connector,connector_corner_round_border:Border Round Corner Connector,divider_border:Border Divider Parts],draw_two
 
 height = 90;
 width_bottom = 12;
@@ -12,7 +12,7 @@ border_overhang = 6;
 snap_connection_size = 1;
 
 /* [Divider Settings] */
-divider_length = 72;
+divider_length = 230;
 // radius for bending the bend divider relative to divider length
 bend_radius_factor = 0.5;
 // amount of displacement for bend dividers
@@ -124,7 +124,7 @@ module parts(part) {
         }
         //Left side
         translate([width_top/2,border_overhang+width_top/2,0])
-        connector_corner(round_outside=false, round_inside=false, border=true);
+        connector_corner(round_outside=false, round_inside=true, border=true);
         translate([width_top/2,0.5*connector_length+width_top/2+border_overhang,0]){
             rotate([0,0,180]) 
             divider(border=true, length=185);
@@ -139,7 +139,7 @@ module parts(part) {
         }
         translate([width_top/2,connector_length+width_top/2+border_overhang+370,0]){
             rotate([0,0,180]) 
-            connector_t(round=false, border=true);
+            connector_t(round=true, border=true);
         }
         translate([width_top/2,connector_length*1.5+width_top/2+border_overhang+370]){
             rotate([0,0,180]) 
@@ -147,7 +147,7 @@ module parts(part) {
         }
         translate([border_overhang+width_top/2,connector_length*1.5+width_top/2+border_overhang+447,0]){
             rotate([0,0,270]) 
-            connector_corner(round_outside=false, round_inside=false, border=true);
+            connector_corner(round_outside=false, round_inside=true, border=true);
         }
         //back
         back_dim = (connector_length*1.5)+(width_top/2)+border_overhang+447;
@@ -167,7 +167,7 @@ module parts(part) {
         right_dim = border_overhang+width_top+connector_length+277.5;
         translate([right_dim,width_top/2,0]){
             rotate([0,0,90])
-            connector_corner(round_outside=false, round_inside=false, border=true);
+            connector_corner(round_outside=false, round_inside=true, border=true);
         }
         translate([border_overhang+right_dim,0.5*connector_length+width_top/2+border_overhang+185,0]){
             rotate([0,0,0]) 
@@ -183,7 +183,7 @@ module parts(part) {
         }
         translate([border_overhang+right_dim,connector_length+width_top/2+border_overhang+370,0]){
             rotate([0,0,0]) 
-            connector_t(round=false, border=true);
+            connector_t(round=true, border=true);
         }
         translate([border_overhang+right_dim,connector_length*1.5+width_top/2+border_overhang+432]){
             rotate([0,0,0]) 
@@ -191,7 +191,7 @@ module parts(part) {
         }
         translate([border_overhang+right_dim,(connector_length*1.5)+(width_top/2)+447,0]){
             rotate([0,0,180]) 
-            connector_corner(round_outside=false, round_inside=false, border=true);
+            connector_corner(round_outside=false, round_inside=true, border=true);
         }
         //front
         front_dimy = (width_top/2);
@@ -202,7 +202,7 @@ module parts(part) {
         }
         translate([front_dimx+(connector_length/2)+28,front_dimy,0]){
             rotate([0,0,270]) 
-            connector_t(round=false, border=true);
+            connector_t(round=true, border=true);
         }
         translate([front_dimx+(connector_length/2)+137,front_dimy,0]){
             rotate([0,0,270]) 
@@ -210,7 +210,7 @@ module parts(part) {
         }
         translate([front_dimx+(connector_length)+137,front_dimy,0]){
             rotate([0,0,270]) 
-            connector_t(round=false, border=true);
+            connector_t(round=true, border=true);
         }
         translate([front_dimx+(connector_length*1.5)+177,front_dimy,0]){
             rotate([0,0,270]) 
@@ -218,7 +218,7 @@ module parts(part) {
         }
         translate([front_dimx+(connector_length*2)+177,front_dimy,0]){
             rotate([0,0,270]) 
-            connector_t(round=false, border=true);
+            connector_t(round=true, border=true);
         }
         translate([front_dimx+(connector_length*2.5)+235,front_dimy,0]){
             rotate([0,0,270]) 
@@ -294,7 +294,7 @@ module parts(part) {
         }
         translate([front_dimx+(connector_length/2)+58,hor_dimy,0]){
             rotate([0,0,90]) 
-            connector_t(round=false, border=false);
+            connector_t(round=true, border=false);
         }
         translate([front_dimx+(connector_length)+98,hor_dimy,0]){
             rotate([0,0,270]) 
@@ -302,7 +302,7 @@ module parts(part) {
         }
         translate([front_dimx+(connector_length*1.5)+98,hor_dimy,0]){
             rotate([0,0,90]) 
-            connector_t(round=false, border=false);
+            connector_t(round=true, border=false);
         }
         translate([front_dimx+(connector_length*2)+198,hor_dimy,0]){
             rotate([0,0,270]) 
@@ -310,7 +310,7 @@ module parts(part) {
         }
         translate([front_dimx+(connector_length*2.5)+198,hor_dimy,0]){
             rotate([0,0,90]) 
-            connector_t(round=false, border=false);
+            connector_t(round=true, border=false);
         }
         translate([front_dimx+(connector_length*2.5)+235,hor_dimy,0]){
             rotate([0,0,270]) 
