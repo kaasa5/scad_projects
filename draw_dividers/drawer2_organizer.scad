@@ -12,7 +12,7 @@ border_overhang = 6;
 snap_connection_size = 1;
 
 /* [Divider Settings] */
-divider_length = 230;
+divider_length = 144;
 // radius for bending the bend divider relative to divider length
 bend_radius_factor = 0.5;
 // amount of displacement for bend dividers
@@ -87,7 +87,7 @@ module parts(part) {
     else if (part == "connector_zero_border")
         connector_zero(border=true);
     else if (part == "connector_straight_border")
-        connector_straight(border=true);
+        connector_straight(border=true, c_length=4);
     else if (part == "connector_t_border")
         connector_t(round=false, border=true);
     else if (part == "connector_t_round_border")
@@ -155,16 +155,16 @@ module parts(part) {
             rotate([0,0,90]) 
             divider(border=true, length=140);
         }
-        translate([border_overhang+(width_top/2)+(0.5*connector_length)+140,back_dim,0]){
+        translate([border_overhang+(width_top/2)+(0.5*connector_length)+142,back_dim,0]){
             rotate([0,0,90]) 
-            connector_zero(border=true);
+            connector_straight(border=true, c_length=4);
         }
-        translate([border_overhang+(width_top/2)+(0.5*connector_length)+140,back_dim,0]){
+        translate([border_overhang+(width_top/2)+(0.5*connector_length)+144,back_dim,0]){
             rotate([0,0,90]) 
             divider(border=true, length=140);
         }
         //right
-        right_dim = border_overhang+width_top+connector_length+277.5;
+        right_dim = border_overhang+width_top+connector_length+281.5;
         translate([right_dim,width_top/2,0]){
             rotate([0,0,90])
             connector_corner(round_outside=false, round_inside=true, border=true);
@@ -196,125 +196,125 @@ module parts(part) {
         //front
         front_dimy = (width_top/2);
         front_dimx = border_overhang+(width_top/2)+(0.5*connector_length);
-        translate([front_dimx+28,front_dimy,0]){
+        translate([front_dimx+30,front_dimy,0]){
             rotate([0,0,270]) 
-            divider(border=true, length=28);
+            divider(border=true, length=30);
         }
-        translate([front_dimx+(connector_length/2)+28,front_dimy,0]){
+        translate([front_dimx+(connector_length/2)+30,front_dimy,0]){
             rotate([0,0,270]) 
             connector_t(round=true, border=true);
         }
-        translate([front_dimx+(connector_length/2)+137,front_dimy,0]){
+        translate([front_dimx+(connector_length/2)+139,front_dimy,0]){
             rotate([0,0,270]) 
             divider(border=true, length=100);
         }
-        translate([front_dimx+(connector_length)+137,front_dimy,0]){
+        translate([front_dimx+(connector_length)+139,front_dimy,0]){
             rotate([0,0,270]) 
             connector_t(round=true, border=true);
         }
-        translate([front_dimx+(connector_length*1.5)+177,front_dimy,0]){
+        translate([front_dimx+(connector_length*1.5)+179,front_dimy,0]){
             rotate([0,0,270]) 
             divider(border=true, length=40);
         }
-        translate([front_dimx+(connector_length*2)+177,front_dimy,0]){
+        translate([front_dimx+(connector_length*2)+179,front_dimy,0]){
             rotate([0,0,270]) 
             connector_t(round=true, border=true);
         }
-        translate([front_dimx+(connector_length*2.5)+235,front_dimy,0]){
+        translate([front_dimx+(connector_length*2.5)+239,front_dimy,0]){
             rotate([0,0,270]) 
-            divider(border=true, length=58);
+            divider(border=true, length=60);
         }
         //Verticle Divider
         vert_dimy = border_overhang+(connector_length/2)+(width_top/2);
-        translate([front_dimx+(connector_length/2)+28,vert_dimy,0]){
+        translate([front_dimx+(connector_length/2)+30,vert_dimy,0]){
             rotate([0,0,180]) 
             divider(border=false, length=70);
         } 
-        translate([front_dimx+(connector_length/2)+28,vert_dimy+70,0]){
+        translate([front_dimx+(connector_length/2)+30,vert_dimy+70,0]){
             rotate([0,0,180]) 
             connector_zero(border=false);
         } 
-        translate([front_dimx+(connector_length/2)+28,vert_dimy+70,0]){
+        translate([front_dimx+(connector_length/2)+30,vert_dimy+70,0]){
             rotate([0,0,180]) 
             divider_bend(length=230, distance=-bend_distance);
         } 
-        translate([front_dimx+(connector_length/2)+58,vert_dimy+300,0]){
+        translate([front_dimx+(connector_length/2)+60,vert_dimy+300,0]){
             rotate([0,0,180]) 
             connector_zero(border=false);
         }
-        translate([front_dimx+(connector_length/2)+58,vert_dimy+300,0]){
+        translate([front_dimx+(connector_length/2)+60,vert_dimy+300,0]){
             rotate([0,0,180]) 
             divider(border=false, length=70);
         }
-        translate([front_dimx+(connector_length)+137,vert_dimy,0]){
+        translate([front_dimx+(connector_length)+139,vert_dimy,0]){
             rotate([0,0,180]) 
             divider(border=false, length=70);
         }
-        translate([front_dimx+(connector_length)+137,vert_dimy+70,0]){
+        translate([front_dimx+(connector_length)+139,vert_dimy+70,0]){
             rotate([0,0,180]) 
             connector_zero(border=false);
         }
-        translate([front_dimx+(connector_length)+137,vert_dimy+70,0]){
+        translate([front_dimx+(connector_length)+139,vert_dimy+70,0]){
             rotate([0,0,180]) 
             divider_bend(length=230);
         }
-        translate([front_dimx+(connector_length*1.5)+98,vert_dimy+300,0]){
+        translate([front_dimx+(connector_length*1.5)+100,vert_dimy+300,0]){
             rotate([0,0,180]) 
             connector_zero(border=false);
         }
-        translate([front_dimx+(connector_length*1.5)+98,vert_dimy+300,0]){
+        translate([front_dimx+(connector_length*1.5)+100,vert_dimy+300,0]){
             rotate([0,0,180]) 
             divider(border=false, length=70);
         }
-        translate([front_dimx+(connector_length*2)+177,vert_dimy,0]){
+        translate([front_dimx+(connector_length*2)+179,vert_dimy,0]){
             rotate([0,0,180]) 
             divider(border=false, length=70);
         }
-        translate([front_dimx+(connector_length*2)+177,vert_dimy+70,0]){
+        translate([front_dimx+(connector_length*2)+179,vert_dimy+70,0]){
             rotate([0,0,180]) 
             connector_zero(border=false);
         }
-        translate([front_dimx+(connector_length*2)+177,vert_dimy+70,0]){
+        translate([front_dimx+(connector_length*2)+179,vert_dimy+70,0]){
             rotate([0,0,180]) 
             divider_bend(length=230, distance=-bend_distance);
         }
-        translate([front_dimx+(connector_length*2.5)+198,vert_dimy+300,0]){
+        translate([front_dimx+(connector_length*2.5)+200,vert_dimy+300,0]){
             rotate([0,0,180]) 
             connector_zero(border=false);
         }
-        translate([front_dimx+(connector_length*2.5)+198,vert_dimy+300,0]){
+        translate([front_dimx+(connector_length*2.5)+200,vert_dimy+300,0]){
             rotate([0,0,180]) 
             divider(border=false, length=70);
         }
         //Horizontal Divider
         hor_dimy = connector_length+(width_top/2)+border_overhang+370;
-        translate([front_dimx+58,hor_dimy,0]){
+        translate([front_dimx+60,hor_dimy,0]){
             rotate([0,0,270]) 
-            divider(border=false, length=58);
+            divider(border=false, length=60);
         }
-        translate([front_dimx+(connector_length/2)+58,hor_dimy,0]){
+        translate([front_dimx+(connector_length/2)+60,hor_dimy,0]){
             rotate([0,0,90]) 
             connector_t(round=true, border=false);
         }
-        translate([front_dimx+(connector_length)+98,hor_dimy,0]){
+        translate([front_dimx+(connector_length)+100,hor_dimy,0]){
             rotate([0,0,270]) 
             divider(border=false, length=40);
         }
-        translate([front_dimx+(connector_length*1.5)+98,hor_dimy,0]){
+        translate([front_dimx+(connector_length*1.5)+100,hor_dimy,0]){
             rotate([0,0,90]) 
             connector_t(round=true, border=false);
         }
-        translate([front_dimx+(connector_length*2)+198,hor_dimy,0]){
+        translate([front_dimx+(connector_length*2)+200,hor_dimy,0]){
             rotate([0,0,270]) 
             divider(border=false, length=100);
         }
-        translate([front_dimx+(connector_length*2.5)+198,hor_dimy,0]){
+        translate([front_dimx+(connector_length*2.5)+200,hor_dimy,0]){
             rotate([0,0,90]) 
             connector_t(round=true, border=false);
         }
-        translate([front_dimx+(connector_length*2.5)+235,hor_dimy,0]){
+        translate([front_dimx+(connector_length*2.5)+239,hor_dimy,0]){
             rotate([0,0,270]) 
-            divider(border=false, length=28);
+            divider(border=false, length=30);
         }
     }
     else
@@ -651,12 +651,12 @@ module connector_zero(border=false) {
     }
 }
 
-module connector_straight(border=false) {
-    translate([0,0.5*connector_length,0]) {
+module connector_straight(border=false, c_length = connector_length) {
+    translate([0,0.5*c_length,0]) {
         union() {
-            profile(length=connector_length, border=border);
+            profile(length=c_length, border=border);
             fitting(male=true, border=border);
-            translate([0,-connector_length,0])
+            translate([0,-c_length,0])
                 scale([1,-1,1])
                     fitting(male=true, border=border);
         }
