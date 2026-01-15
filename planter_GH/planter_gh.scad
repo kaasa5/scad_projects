@@ -1,5 +1,5 @@
 
-part = "top";
+part = "bottom";
 
 $fn = 150;
 
@@ -44,21 +44,21 @@ module bottom(){
         translate([0,0,5])
         cylinder(10, d = 150, center = false);
         translate([-80,0,8])
-        cylinder(8, d = 2.8, center = false);
+        cylinder(8, d1 = 2.8, d2 = 3, center = false);
         translate([-56.5,-56.5,8])
-        cylinder(8, d = 2.8, center = false);
+        cylinder(8, d1 = 2.8, d2 = 3, center = false);
         translate([0,-80,8])
-        cylinder(8, d = 2.8, center = false);
+        cylinder(8, d1 = 2.8, d2 = 3, center = false);
         translate([56.5,-56.5,8])
-        cylinder(8, d = 2.8, center = false);
+        cylinder(8, d1 = 2.8, d2 = 3, center = false);
         translate([80,0,8])
-        cylinder(8, d = 2.8, center = false);
+        cylinder(8, d1 = 2.8, d2 = 3, center = false);
         translate([-56.5,56.5,8])
-        cylinder(8, d = 2.8, center = false);
+        cylinder(8, d1 = 2.8, d2 = 3, center = false);
         translate([0,80,8])
-        cylinder(8, d = 2.8, center = false);
+        cylinder(8, d1 = 2.8, d2 = 3, center = false);
         translate([56.5,56.5,8])
-        cylinder(8, d = 2.8, center = false);
+        cylinder(8, d1 = 2.8, d2 = 3, center = false);
     }    
     difference(){
         translate([0,0,0])
@@ -97,6 +97,6 @@ module top(){
 module boss(){
     difference(){
         cylinder(5, d = 5, center = false);
-        cylinder(5, d = 2.8, center = false);
+        cylinder(5, d1 = 2.8, d2 = 3, center = false);
     }
 }
