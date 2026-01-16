@@ -40,26 +40,27 @@ module parts(part) {
 module bottom(){
     difference(){
         translate([0,0,5])
-        cylinder(10, d = 170, center = false);
+        cylinder(3, d = 170, center = false);
         translate([0,0,5])
-        cylinder(10, d = 150, center = false);
-        translate([-80,0,8])
-        cylinder(8, d1 = 2.8, d2 = 3, center = false);
-        translate([-56.5,-56.5,8])
-        cylinder(8, d1 = 2.8, d2 = 3, center = false);
-        translate([0,-80,8])
-        cylinder(8, d1 = 2.8, d2 = 3, center = false);
-        translate([56.5,-56.5,8])
-        cylinder(8, d1 = 2.8, d2 = 3, center = false);
-        translate([80,0,8])
-        cylinder(8, d1 = 2.8, d2 = 3, center = false);
-        translate([-56.5,56.5,8])
-        cylinder(8, d1 = 2.8, d2 = 3, center = false);
-        translate([0,80,8])
-        cylinder(8, d1 = 2.8, d2 = 3, center = false);
-        translate([56.5,56.5,8])
-        cylinder(8, d1 = 2.8, d2 = 3, center = false);
-    }    
+        cylinder(3, d = 150, center = false);
+    }
+    translate([-80,0,8])
+    boss(8);
+    translate([-56.5,-56.5,8])
+    boss(8);
+    translate([0,-80,8])
+    boss(8);
+    translate([56.5,-56.5,8])
+    boss(8);
+    translate([80,0,8])
+    boss(8);
+    translate([-56.5,56.5,8])
+    boss(8);
+    translate([0,80,8])
+    boss(8);
+    translate([56.5,56.5,8])
+    boss(8);
+    
     difference(){
         translate([0,0,0])
         cylinder(5, d = 170, center = false);
@@ -94,9 +95,9 @@ module top(){
 
 }
 
-module boss(){
+module boss(outer = 5){
     difference(){
-        cylinder(5, d = 5, center = false);
+        cylinder(5, d = outer, center = false);
         cylinder(5, d1 = 2.8, d2 = 3, center = false);
     }
 }
