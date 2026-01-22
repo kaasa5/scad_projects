@@ -1,5 +1,5 @@
 
-part = "bottom";
+part = "top";
 
 $fn = 150;
 
@@ -39,33 +39,48 @@ module parts(part) {
 
 module bottom(){
     difference(){
-        translate([0,0,5])
-        cylinder(3, d = 170, center = false);
+        translate([0,0,0])
+        cylinder(8, d = 170, center = false);
         translate([0,0,5])
         cylinder(3, d = 150, center = false);
+        translate([0,0,0])
+        cylinder(5, d = 167, center = false);
     }
-    translate([-80,0,8])
+    translate([-80,0,7.99])
     boss(8);
-    translate([-56.5,-56.5,8])
+    translate([-56.5,-56.5,7.99])
     boss(8);
     translate([0,-80,8])
     boss(8);
-    translate([56.5,-56.5,8])
+    translate([56.5,-56.5,7.99])
     boss(8);
     translate([80,0,8])
     boss(8);
-    translate([-56.5,56.5,8])
+    translate([-56.5,56.5,7.99])
     boss(8);
     translate([0,80,8])
     boss(8);
-    translate([56.5,56.5,8])
+    translate([56.5,56.5,7.99])
     boss(8);
-    
+    // top rib
     difference(){
-        translate([0,0,0])
-        cylinder(5, d = 170, center = false);
-        cylinder(5, d = 167, center = false);
-        }
+        translate([0,0,08])
+        cylinder(5, d1 = 170, d2 = 162, center = false);
+        translate([0,0,8])
+        cylinder(5, d1 = 150, d2 = 158, center = false);
+        translate([-80,0,3])
+        cylinder(5, d1 = 2.6, d2 = 2.9, center = false);
+        // subtract boss holes
+        translate([-80,0,8]) boss_hole();
+        translate([-56.5,-56.5,8]) boss_hole();
+        translate([0,-80,8]) boss_hole();
+        translate([56.5,-56.5,8]) boss_hole();
+        translate([80,0,8]) boss_hole();
+        translate([-56.5,56.5,8]) boss_hole();
+        translate([0,80,8]) boss_hole();
+        translate([56.5,56.5,8]) boss_hole();
+        
+    }
 }
 
 module top(){
@@ -98,6 +113,10 @@ module top(){
 module boss(outer = 5){
     difference(){
         cylinder(5, d = outer, center = false);
-        cylinder(5, d1 = 2.8, d2 = 3, center = false);
+        boss_hole(5);
     }
+}
+
+module boss_hole(h=5){
+    cylinder(h, d1 = 2.6, d2 = 2.9, center = false);
 }
