@@ -1,5 +1,5 @@
 
-part = "top";
+part = "all";
 
 $fn = 150;
 
@@ -10,23 +10,23 @@ module parts(part) {
         bottom();
         color("red",0.3){
             translate([-80,0,8])
-            cylinder(200, d = 2.5, center = false);
+            support();
             translate([-56.5,-56.5,8])
-            cylinder(200, d = 2.5, center = false);
+            support();
             translate([0,-80,8])
-            cylinder(200, d = 2.5, center = false);
+            support();
             translate([56.5,-56.5,8])
-            cylinder(200, d = 2.5, center = false);
+            support();
             translate([80,0,8])
-            cylinder(200, d = 2.5, center = false);
+            support();
             translate([-56.5,56.5,8])
-            cylinder(200, d = 2.5, center = false);
+            support();
             translate([0,80,8])
-            cylinder(200, d = 2.5, center = false);
+            support();
             translate([56.5,56.5,8])
-            cylinder(200, d = 2.5, center = false);
+            support();
         }
-        translate([0,0,211]){
+        translate([0,0,91]){
             rotate([180,0,0])
             top();
         }
@@ -35,6 +35,8 @@ module parts(part) {
         bottom();
     else if (part == "top")
         top();
+    else if (part == "support")
+        support();
 }
 
 module bottom(){
@@ -119,4 +121,15 @@ module boss(outer = 5){
 
 module boss_hole(h=5){
     cylinder(h, d1 = 2.6, d2 = 2.9, center = false);
+}
+
+module support(){
+    translate([0,0,0]) union(){
+        translate([0,0,0])
+        cylinder(5.01, d1 = 2.6, d2 = 2.9, center = false);
+        translate([0,0,5])
+        cylinder(70.01, d = 3, center = false);
+        translate([0,0,75])
+        cylinder(5, d1 = 2.9, d2 = 2.6, center = false);
+    };
 }
